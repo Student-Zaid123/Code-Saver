@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Calendar, Copy } from 'lucide-react';
 import toast from 'react-hot-toast';
@@ -7,10 +7,23 @@ import FormatDate from '../utlis/FormatDate';
 
 const ViewPaste = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const pastes = useSelector((state) => state.paste.pastes);
   const paste = pastes.find((p) => p._id === id);
 
-  if (!paste) return <div className="text-center text-red-500">Paste not found</div>;
+  if (!paste) {
+    return (
+      <div className="text-center text-red-500 p-6">
+        Paste not found!{' '}
+        <button
+          className="text-blue-500 underline"
+          onClick={() => navigate('/pastes')}
+        >
+          Go back to Pastes
+        </button>
+      </div>
+    );
+  }
 
   const handleCopy = () => {
     navigator.clipboard.writeText(paste.content);
