@@ -59,15 +59,15 @@ const Paste = () => {
                   <div className="flex flex-col gap-y-4 sm:items-end">
                     <div className="flex gap-2 flex-wrap sm:flex-nowrap">
                       <button
-                        className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7] hover:bg-transparent group hover:border-blue-500"
-                      >
-                        <a href={`/edit?pasteId=${paste._id}`}>
-                          <PencilLine
-                            className="text-black group-hover:text-blue-500"
-                            size={20}
-                          />
-                        </a>
-                      </button>
+  className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7] hover:bg-transparent group hover:border-blue-500"
+>
+  <NavLink to={`/edit?pasteId=${paste._id}`}>
+    <PencilLine
+      className="text-black group-hover:text-blue-500"
+      size={20}
+    />
+  </NavLink>
+</button>
                       <button
                         className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7] hover:bg-transparent group hover:border-pink-500"
                         onClick={() => handleDelete(paste._id)}
