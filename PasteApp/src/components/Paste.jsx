@@ -78,14 +78,16 @@ const Paste = () => {
                           size={20}
                         />
                       </button>
-                      <button className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7] hover:bg-transparent group hover:border-orange-500">
-                        <a href={`/pastes/${paste._id}`} target="_blank">
-                          <Eye
-                            className="text-black group-hover:text-orange-500"
-                            size={20}
-                          />
-                        </a>
-                      </button>
+                     <button
+  className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7] hover:bg-transparent group hover:border-orange-500"
+>
+  <NavLink to={`/pastes/${paste._id}`} target="_blank">
+    <Eye
+      className="text-black group-hover:text-orange-500"
+      size={20}
+    />
+  </NavLink>
+</button>
                       <button
                         className="p-2 rounded-[0.2rem] bg-white border border-[#c7c7c7] hover:bg-transparent group hover:border-green-500"
                         onClick={() => {
